@@ -1,0 +1,16 @@
+{
+	"name": "MyRobot",
+	"frameworks": "Arduino",
+	"version": "1.0.0",
+	"keywords": "Robot, MyRobot, arduino, robotica",
+	"description": "To controll a whole Robot, for a while.",
+	"url": "https://github.com/TiagoPintoAlves/MyRobot",
+	"author": {
+	    "name": "Tiago Alves",
+	    "email": "tiago.alves718@gmail.com"
+	},
+	"repository": {
+	    "type": "git",
+	    "url": "https://github.com/TiagoPintoAlves/MyRobot"
+	}
+}

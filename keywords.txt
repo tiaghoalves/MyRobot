@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map For MyRobot Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MyRobot 			KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setupServo  				KEYWORD2
+stop	 					KEYWORD2
+goAhead 					KEYWORD2
+goBack  					KEYWORD2
+setupAnalogSensors  		KEYWORD2
+setupDigitalSensors 		KEYWORD2
+getDigitalRead				KEYWORD2
+getAnalogRead				KEYWORD2
+setupUltra  				KEYWORD2
+getDistancia  				KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
