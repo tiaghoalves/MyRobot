@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <algorithm>
-#include <string.h>
+#include <string>
 
 using namespace std;
 
@@ -33,7 +33,7 @@ void MyRobot::setupAnalogSensors(string State, int pins[]){
   {
     for (int i = 0; i < MAX_ANALOG_PINS; ++i)
     {
-      string State = std::transform(State.begin(), State.end(), State.begin(), toupper);
+      string State = transform(State.begin(), State.end(), State.begin(), toupper);
       pinMode(pins[i], STATE);
     }
   }
@@ -48,7 +48,7 @@ void MyRobot::setupDigitalSensors(string State, int pins[]){
   if (pins.length() < MAX_DIGITAL_PINS){
     for (int i = 0; i < pins.length(); ++i)
     {
-      string STATE = std::transform(State.begin(), State.end(), State.begin(), toupper);
+      string STATE = transform(State.begin(), State.end(), State.begin(), toupper);
       pinMode(pins[i], STATE);
     }
   }
@@ -76,7 +76,6 @@ unsigned int MyRobot::getDistancia(){
   long _leitura_echo = pulseIn(_EchoPin, HIGH);
   return _distancia = _leitura_echo / 58;
 }
-
 
 
 

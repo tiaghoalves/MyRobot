@@ -1,9 +1,9 @@
 #ifndef MyRobot_h
 #define MyRobot_h
 
-#include <string.h>
 #include "Arduino.h"
 #include <Servo.h>
+#include <string.h>
 
 #define MAX_ANALOG_PINS (6);
 #define MAX_DIGITAL_PINS (14);
@@ -11,9 +11,10 @@
 using namespace std;
 
 class MyRobot {
-  
+
 public:
   MyRobot(void);
+
 /*  SETUPS: */
 // Servos:
   void setupServo(unsigned int esqPin, unsigned int dirPin);
