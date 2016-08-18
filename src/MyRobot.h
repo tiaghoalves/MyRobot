@@ -19,9 +19,9 @@ public:
   Servos: */
   void setupServo(unsigned int esqPin, unsigned int dirPin);
 /* ANALOG: */
-  void setupAnalogSensors(int pins[], uint8_t STATE);
+  void setupAnalogSensors(const int pins[], uint8_t STATE);
 /* DIGITAL: */
-  void setupDigitalSensors(int pins[], uint8_t STATE);
+  void setupDigitalSensors(const int pins[], uint8_t STATE);
 /* ULTRASSOM: */
   void setupUltra(unsigned int TrigPin, unsigned int EchoPin);
 
@@ -41,12 +41,11 @@ private:
   unsigned int _EchoPin;
   unsigned int _AnalogPins[MAX_ANALOG_PINS];
   unsigned int _DigitalPins[MAX_DIGITAL_PINS];
-
-protected:
-  bool isValidDigital(int pins[]);
-  bool isValidDigital(int pin);
-  bool isValidAnalog(int pins[]);
-  bool isValidAnalog(int pin);
+  
+  bool isValidDigital(const int pins[]);
+  bool isValidDigital(const int pin);
+  bool isValidAnalog(const int pins[]);
+  bool isValidAnalog(const int pin);
 
 };
 
