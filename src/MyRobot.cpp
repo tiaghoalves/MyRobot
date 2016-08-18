@@ -2,15 +2,12 @@
 #include "MyRobot.h"
 #include <Servo.h>
 
-#include <iostream>
-#include <algorithm>
-#include <string>
-
 using namespace std;
 
 MyRobot::MyRobot(void){
 }
 
+/* SERVOS */
 void MyRobot::setupServo(unsigned int esqPin, unsigned int dirPin){
   _esquerdo.attach(esqPin);
   _direito.attach(dirPin);
@@ -28,44 +25,61 @@ void MyRobot::goBack(){
   _direito.write(0);
 }
 
-void MyRobot::setupAnalogSensors(string State, int pins[]){
-  if (pins.length() < MAX_ANALOG_PINS)
+/* SENSOR ANALOG */
+void MyRobot::setupAnalogSensors(uint8_t STATE, int pins[]){
+  if (isValidAnalog(pins))
   {
-    for (int i = 0; i < MAX_ANALOG_PINS; ++i)
+    for (int i = 0; i < sizeof(pins); i++)
     {
-      string State = transform(State.begin(), State.end(), State.begin(), toupper);
+      _AnalogPins[i] = pins[i];
       pinMode(pins[i], STATE);
     }
   }
 }
-
-void MyRobot::getAnalogRead(unsigned int esqPin, unsigned int dirPin){
-  _esqValue = analogRead(esqPin);
-  _dirValue = analogRead(dirPin);
-}
-
-void MyRobot::setupDigitalSensors(string State, int pins[]){
-  if (pins.length() < MAX_DIGITAL_PINS){
-    for (int i = 0; i < pins.length(); ++i)
+int MyRobot::getAnalogRead(unsigned int pin){
+  if (isValidAnalog(pin))
+  {
+    for (int i = 0; i < sizeof(_AnalogPins); i++)
     {
-      string STATE = transform(State.begin(), State.end(), State.begin(), toupper);
-      pinMode(pins[i], STATE);
+      if (i == pin)
+      {
+        return analogRead(pin);
+      }
     }
   }
 }
 
-void MyRobot::getDigitalRead(unsigned int esqPin, unsigned int dirPin){
-  _esqValue = digitalRead(esqPin);
-  _dirValue = digitalRead(dirPin);
+/* SENSOR DIGITAL */
+void MyRobot::setupDigitalSensors(uint8_t STATE, int pins[]){
+  if (isValidDigital(pins))
+  {
+    for (int i = 0; i < sizeof(pins); i++)
+    {
+      _DigitalPins[i] = pins[i];
+      pinMode(pins[i], STATE);
+    }
+  }
+}
+int MyRobot::getDigitalRead(unsigned int pin){
+  if (isValidDigital(pin))
+  {
+    for (int i = 0; i < sizeof(_DigitalPins); i++)
+    {
+      if (i == pin)
+      {
+        return digitalRead(pin);
+      }
+    }
+  }
 }
 
+/* ULTRASSOM */
 void MyRobot::setupUltra(unsigned int TrigPin, unsigned int EchoPin){
   pinMode(TrigPin, OUTPUT);
   pinMode(EchoPin, INPUT);
   _TrigPin = TrigPin;
   _EchoPin = EchoPin;
 }
-
 unsigned int MyRobot::getDistancia(){
   delayMicroseconds(2);
   digitalWrite(_TrigPin, HIGH);
@@ -73,9 +87,22 @@ unsigned int MyRobot::getDistancia(){
   digitalWrite(_TrigPin, LOW);
   delayMicroseconds(2);
   
-  long _leitura_echo = pulseIn(_EchoPin, HIGH);
-  return _distancia = _leitura_echo / 58;
+  long leitura_echo = pulseIn(_EchoPin, HIGH);
+  _distancia = leitura_echo / 58;
+  return _distancia;
 }
 
+bool isValidDigital(int pins[]){
+  return (sizeof(pins) < MAX_DIGITAL_PINS) ? true : false;
+}
+bool isValidDigital(int pin){
+  return (pin < MAX_DIGITAL_PINS) ? true : false;
+}
 
+bool isValidAnalog(int pins[]){
+  return (sizeof(pins) < MAX_ANALOG_PINS) ? true : false;
+}
+bool isValidAnalog(int pin){
+  return (pin < MAX_ANALOG_PINS) ? true : false;
+}
 
