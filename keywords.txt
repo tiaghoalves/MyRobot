@@ -13,7 +13,7 @@ MyRobot 			KEYWORD1
 #######################################
 
 setupServo  				KEYWORD2
-stop	 					KEYWORD2
+stopServo					KEYWORD2
 goAhead 					KEYWORD2
 goBack  					KEYWORD2
 setupAnalogSensors  		KEYWORD2
