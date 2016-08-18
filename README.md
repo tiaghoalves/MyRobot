@@ -1,8 +1,9 @@
-<snippet>
+
+
 # MyRobot
 My First Library for Arduino Plataform. It is mean to be a whole Robot controller that uses the Arduino Plataform Hardware in general, for a while. This looks to improve the code writing, making it more faster, better and a little syntax simple by the way.
 ## Installation
-TODO: Describe the installation process
+As with all libraries, unzip the file into the 'libraries' folder in your Arduino directory, which will be in something like 'My Documents\Arduino' on Windows, 'Documents/Arduino' on Mac etc. If this is the first library you have installed, you will need to create a directory there called 'libraries'.
 ## Usage
   An previous exemple:
   <snippet>
@@ -41,5 +42,3 @@ TODO: Describe the installation process
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-  <tabTrigger>readme</tabTrigger>
-</snippet>
