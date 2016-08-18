@@ -12,7 +12,7 @@ void MyRobot::setupServo(unsigned int esqPin, unsigned int dirPin){
   _esquerdo.attach(esqPin);
   _direito.attach(dirPin);
 }
-void MyRobot::stop(void){
+void MyRobot::stopServo(void){
   _esquerdo.write(90);
   _direito.write(90);
 }
@@ -26,7 +26,7 @@ void MyRobot::goBack(){
 }
 
 /* SENSOR ANALOG */
-void MyRobot::setupAnalogSensors(uint8_t STATE, int pins[]){
+void MyRobot::setupAnalogSensors(int pins[], uint8_t STATE){
   if (isValidAnalog(pins))
   {
     for (int i = 0; i < sizeof(pins); i++)
@@ -50,7 +50,7 @@ int MyRobot::getAnalogRead(unsigned int pin){
 }
 
 /* SENSOR DIGITAL */
-void MyRobot::setupDigitalSensors(uint8_t STATE, int pins[]){
+void MyRobot::setupDigitalSensors(int pins[], uint8_t STATE){
   if (isValidDigital(pins))
   {
     for (int i = 0; i < sizeof(pins); i++)
@@ -92,17 +92,17 @@ unsigned int MyRobot::getDistancia(){
   return _distancia;
 }
 
-bool isValidDigital(int pins[]){
+bool MyRobot::isValidDigital(int pins[]){
   return (sizeof(pins) < MAX_DIGITAL_PINS) ? true : false;
 }
-bool isValidDigital(int pin){
+bool MyRobot::isValidDigital(int pin){
   return (pin < MAX_DIGITAL_PINS) ? true : false;
 }
 
-bool isValidAnalog(int pins[]){
+bool MyRobot::isValidAnalog(int pins[]){
   return (sizeof(pins) < MAX_ANALOG_PINS) ? true : false;
 }
-bool isValidAnalog(int pin){
+bool MyRobot::isValidAnalog(int pin){
   return (pin < MAX_ANALOG_PINS) ? true : false;
 }
 

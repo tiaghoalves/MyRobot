@@ -19,14 +19,14 @@ public:
   Servos: */
   void setupServo(unsigned int esqPin, unsigned int dirPin);
 /* ANALOG: */
-  void setupAnalogSensors(uint8_t STATE, int pins[]);
+  void setupAnalogSensors(int pins[], uint8_t STATE);
 /* DIGITAL: */
-  void setupDigitalSensors(uint8_t STATE, int pins[]);
+  void setupDigitalSensors(int pins[], uint8_t STATE);
 /* ULTRASSOM: */
   void setupUltra(unsigned int TrigPin, unsigned int EchoPin);
 
 /* ACTIONS */
-  void stop();
+  void stopServo();
   void goAhead();
   void goBack();
   unsigned int getDistancia();
