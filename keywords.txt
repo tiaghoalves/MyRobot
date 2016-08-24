@@ -16,12 +16,16 @@ setupServo  				KEYWORD2
 stopServo					KEYWORD2
 goAhead 					KEYWORD2
 goBack  					KEYWORD2
+goBackRight					KEYWORD2
+goBackLeft					KEYWORD2
 setupAnalogSensors  		KEYWORD2
 setupDigitalSensors 		KEYWORD2
 getDigitalRead				KEYWORD2
 getAnalogRead				KEYWORD2
 setupUltra  				KEYWORD2
 getDistancia  				KEYWORD2
+toggleRight					KEYWORD2
+toggleLeft					KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)

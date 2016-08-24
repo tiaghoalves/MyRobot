@@ -19,10 +19,40 @@ void MyRobot::stopServo(void){
 void MyRobot::goAhead(){
   _esquerdo.write(0);
   _direito.write(180);
+  _stateServoLeft = true;
+  _stateServoRight = true;
 }
 void MyRobot::goBack(){
   _esquerdo.write(180);
   _direito.write(0);
+  _stateServoLeft = false;
+  _stateServoRight = false;
+}
+void MyRobot::goBackLeft(){
+  _esquerdo.write(180);
+  _stateServoLeft = false;
+}
+void MyRobot::goBackRight(){
+  _direito.write(0);
+  _stateServoRight = false;
+}
+void MyRobot::toggleLeft(){
+  if(_stateServoLeft == true){
+    _stateServoLeft == false;
+    _esquerdo.write(180);
+  } else{
+    _stateServoLeft == true;
+    _esquerdo.write(0);
+  }
+}
+void MyRobot::toggleRight(){
+  if(_stateServoRight == true){
+    _stateServoRight == false;
+    _direito.write(0);
+  } else{
+    _stateServoRight == true;
+    _direito.write(180);
+  }
 }
 
 /* SENSOR ANALOG */

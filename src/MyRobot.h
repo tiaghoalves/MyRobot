@@ -5,8 +5,8 @@
 #include <Servo.h>
 #include <inttypes.h>
 
-#define MAX_ANALOG_PINS (6)
-#define MAX_DIGITAL_PINS (14)
+#define MAX_ANALOG_PINS 6
+#define MAX_DIGITAL_PINS 14
 
 using namespace std;
 
@@ -29,24 +29,30 @@ public:
   void stopServo();
   void goAhead();
   void goBack();
+  void goBackLeft();
+  void goBackRight();
+  void toggleRight();
+  void toggleLeft();
   unsigned int getDistancia();
   int getAnalogRead(unsigned int pin);
   int getDigitalRead(unsigned int pin);
-
-private:
-  Servo _esquerdo;
-  Servo _direito;
-  unsigned int _distancia;
-  unsigned int _TrigPin;
-  unsigned int _EchoPin;
-  unsigned int _AnalogPins[MAX_ANALOG_PINS];
-  unsigned int _DigitalPins[MAX_DIGITAL_PINS];
   
   bool isValidDigital(const int pins[]);
   bool isValidDigital(const int pin);
   bool isValidAnalog(const int pins[]);
   bool isValidAnalog(const int pin);
 
+private:
+  Servo _esquerdo;
+  Servo _direito;
+  bool _stateServoLeft;
+  bool _stateServoRight;
+  unsigned int _distancia;
+  unsigned int _TrigPin;
+  unsigned int _EchoPin;
+  unsigned int _AnalogPins[MAX_ANALOG_PINS];
+  unsigned int _DigitalPins[MAX_DIGITAL_PINS];
+  
 };
 
 #endif
