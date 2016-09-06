@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #include <MyRobot.h>
 
 MyRobot bot;

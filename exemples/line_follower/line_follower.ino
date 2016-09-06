@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #include <MyRobot.h>
 #define BLACK_VALUE 600
 
