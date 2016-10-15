@@ -1,12 +1,13 @@
 
 
 # MyRobot
-My First Library for Arduino Plataform. It is mean to be a whole Robot controller that uses the Arduino Plataform Hardware in general, for a while. This looks to improve the code writing, making it more faster, better and a little syntax simple by the way.
-## Installation
-As with all libraries, unzip the file into the 'libraries' folder in your Arduino directory, which will be in something like 'My Documents\Arduino' on Windows, 'Documents/Arduino' on Mac etc. If this is the first library you have installed, you will need to create a directory there called 'libraries'.
+
+
+MyRobot é uma biblioteca para a Plataforma Arduino. A intenção é de ser um controlador completo de robô que usa a Plataforma Arduino Hardware em geral. Isto olha para melhorar a escrita de código, tornando-o mais rápido, fácil de usar e faz uso de uma sintaxe simples e legível, pois qualquer tipo de lógica que envolva o desenvolvimento do código estára sendo feita pela lib, desde calculos matemáticos necessário até movimentos de motores. O usúario precisará apenas se preocupar em realizar as ligações elétricas necessárias e corretamente feitas.
+
 ## Usage
-  An previous exemple:
-  <snippet>
+  Um exemplo prévio:
+  ```c
 	
 	#include <MyRobot.h>
 	MyRobot bot;
@@ -34,11 +35,10 @@ As with all libraries, unzip the file into the 'libraries' folder in your Arduin
 	  // Using Analog Sensor:
 	  Serial.println( bot.getAnalogRead(AnalogPins[0]) );
 	}
-  </snippet>
-## Contributing
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
+  ```
+## Contribua
+1. Dê Fork!
+2. Crie um branch com a sua feature: `git checkout -b my-new-feature`
+3. Versione suas alterações: `git commit -am 'Add some feature'`
+4. Envie para o seu branch: `git push origin my-new-feature`
+5. Faça um pull request =D
