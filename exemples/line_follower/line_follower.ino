@@ -1,9 +1,9 @@
-#include <Arduino.h>
-
 #include <MyRobot.h>
+
 #define BLACK_VALUE 600
 
 MyRobot bot;
+
 int AnalogPins[4] = { 0, 1, 2, 3 };
 int value1;
 int value2;
@@ -13,9 +13,9 @@ int value4;
 void setup() {
   Serial.begin(9600);  
   // Initializing basic some stuff:
-  bot.setupServo(10, 11);
-  bot.setupUltra(12, 13);
-  bot.setupAnalogSensors(AnalogPins, INPUT);
+  bot.servos(10, 11);
+  bot.ultra(12, 13);
+  bot.analogSensors(AnalogPins, INPUT);
 }
 
 void loop() {

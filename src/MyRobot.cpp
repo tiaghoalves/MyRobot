@@ -1,11 +1,10 @@
 #include "MyRobot.h"
 
-
 MyRobot::MyRobot(){
 }
 
 /* SERVOS */
-void MyRobot::servo(unsigned int esqPin, unsigned int dirPin){
+void MyRobot::servos(unsigned int esqPin, unsigned int dirPin){
   _esquerdo.attach(esqPin);
   _direito.attach(dirPin);
 }

@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 #include <MyRobot.h>
 
 MyRobot bot;
@@ -10,9 +8,9 @@ void setup() {
   Serial.begin(9600);
   
   // Initializing basic some stuff:
-  bot.setupServo(10, 11);
-  bot.setupUltra(12, 13);
-  bot.setupAnalogSensors(AnalogPins, INPUT);
+  bot.servo(10, 11);
+  bot.ultra(12, 13);
+  bot.analogSensors(AnalogPins, INPUT);
 }
 
 void loop() {
