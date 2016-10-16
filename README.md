@@ -10,9 +10,9 @@ Aqui está listada todas as funções e funcionalidades que está lib disponibil
 ### Servos
 Para configurar os servos motores:
   
-  ´´´c++  
+  ```c++  
 void servos(unsigned int esqPin, unsigned int dirPin);
-  ´´´
+  ```
 
 Passados dois pinos conectados aos servos.
 
@@ -20,9 +20,9 @@ Passados dois pinos conectados aos servos.
 ### Sensores Analogicos
 Para configurar os sensores analógicos:
 
-  ´´´c++  
+  ```c++  
 void analogSensors(int pins[], uint8_t STATE);
-  ´´´
+  ```
 
 Passados um array de pinos e o estado de I/O(Entrada ou Saída) do sensor.
 
@@ -30,16 +30,16 @@ Passados um array de pinos e o estado de I/O(Entrada ou Saída) do sensor.
 ### Sensores Digital
 Para configurar os sensores digitais:
 
-  ´´´c++  
+  ```c++  
 void digitalSensors(int pins[], uint8_t STATE);
-  ´´´
+  ```
 
 ### Ultrassom
 Para configurar os sensores Ultrassonicos:
 
-  ´´´c++  
+  ```c++  
 void ultra(unsigned int TrigPin, unsigned int EchoPin);
-  ´´´
+  ```
 
 Passados dois pinos conectados ao sensor ultrassonico.
 
