@@ -7,6 +7,7 @@ MyRobot é uma biblioteca para a Plataforma Arduino. A intenção é de ser um c
   Um exemplo prévio:
   ```c++	
 	#include <MyRobot.h>
+	
 	MyRobot bot;
 	
 	int AnalogPins[4] = { 0, 1, 2, 3 };
@@ -14,12 +15,12 @@ MyRobot é uma biblioteca para a Plataforma Arduino. A intenção é de ser um c
 	void setup() {
 	  Serial.begin(9600);
 	  
-	  // Inicia os sensores:
-	  bot.setupServo(10, 11);
-	  bot.setupUltra(12, 13);
-	  bot.setupAnalogSensors(AnalogPins, INPUT);
+	  // Initializing basic some stuff:
+	  bot.servo(10, 11);
+	  bot.ultra(12, 13);
+	  bot.analogSensors(AnalogPins, INPUT);
 	}
-	  
+	
 	void loop() {
 	  // Using servos:
 	  bot.goAhead();
@@ -31,7 +32,9 @@ MyRobot é uma biblioteca para a Plataforma Arduino. A intenção é de ser um c
 	
 	  // Using Analog Sensor:
 	  Serial.println( bot.getAnalogRead(AnalogPins[0]) );
+	  
 	}
+
   ```
 
 ## Contribua
