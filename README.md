@@ -6,31 +6,42 @@ MyRobot é uma biblioteca para a Plataforma Arduino. A intenção é de ser um c
 ## API
 Aqui está listada todas as funções e funcionalidades que está lib disponibiliza ao usúario. Lembrando que todo o processo de desenvolvimento ainda está em andamento, portanto leve em conscideração qualquer outra atualização ou modificação que possa ocorrer na API.
 
+
 ### Servos
 Para configurar os servos motores:
+  
   ´´´c++  
 void servos(unsigned int esqPin, unsigned int dirPin);
   ´´´
-Passados dois pinos.
+
+Passados dois pinos conectados aos servos.
+
 
 ### Sensores Analogicos
 Para configurar os sensores analógicos:
+
   ´´´c++  
 void analogSensors(int pins[], uint8_t STATE);
   ´´´
+
 Passados um array de pinos e o estado de I/O(Entrada ou Saída) do sensor.
+
 
 ### Sensores Digital
 Para configurar os sensores digitais:
+
   ´´´c++  
 void digitalSensors(int pins[], uint8_t STATE);
   ´´´
 
 ### Ultrassom
-Para configurar os sensores Ultrassónicos:
+Para configurar os sensores Ultrassonicos:
+
   ´´´c++  
 void ultra(unsigned int TrigPin, unsigned int EchoPin);
   ´´´
+
+Passados dois pinos conectados ao sensor ultrassonico.
 
 ## Metodos
 /* Metodos */
