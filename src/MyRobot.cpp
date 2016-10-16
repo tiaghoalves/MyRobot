@@ -1,62 +1,59 @@
-#include "Arduino.h"
 #include "MyRobot.h"
-#include <Servo.h>
 
-using namespace std;
 
-MyRobot::MyRobot(void){
+MyRobot::MyRobot(){
 }
 
 /* SERVOS */
-void MyRobot::setupServo(unsigned int esqPin, unsigned int dirPin){
+void MyRobot::servo(unsigned int esqPin, unsigned int dirPin){
   _esquerdo.attach(esqPin);
   _direito.attach(dirPin);
 }
-void MyRobot::stopServo(void){
+void MyRobot::stopServo(){
   _esquerdo.write(90);
   _direito.write(90);
 }
 void MyRobot::goAhead(){
   _esquerdo.write(0);
   _direito.write(180);
-  _stateServoLeft = true;
-  _stateServoRight = true;
+  _stateLeft = true;
+  _stateRight = true;
 }
 void MyRobot::goBack(){
   _esquerdo.write(180);
   _direito.write(0);
-  _stateServoLeft = false;
-  _stateServoRight = false;
+  _stateLeft = false;
+  _stateRight = false;
 }
 void MyRobot::goBackLeft(){
   _esquerdo.write(180);
-  _stateServoLeft = false;
+  _stateLeft = false;
 }
 void MyRobot::goBackRight(){
   _direito.write(0);
-  _stateServoRight = false;
+  _stateRight = false;
 }
 void MyRobot::toggleLeft(){
-  if(_stateServoLeft == true){
-    _stateServoLeft == false;
+  if(_stateLeft == true){
+    _stateLeft == false;
     _esquerdo.write(180);
-  } else{
-    _stateServoLeft == true;
+  } else {
+    _stateLeft == true;
     _esquerdo.write(0);
   }
 }
 void MyRobot::toggleRight(){
-  if(_stateServoRight == true){
-    _stateServoRight == false;
+  if(_stateRight == true){
+    _stateRight == false;
     _direito.write(0);
-  } else{
-    _stateServoRight == true;
+  } else {
+    _stateRight == true;
     _direito.write(180);
   }
 }
 
 /* SENSOR ANALOG */
-void MyRobot::setupAnalogSensors(const int pins[], uint8_t STATE){
+void MyRobot::analogSensors(int pins[], uint8_t STATE){
   if (isValidAnalog(pins))
   {
     for (int i = 0; i < sizeof(pins); i++)
@@ -66,7 +63,7 @@ void MyRobot::setupAnalogSensors(const int pins[], uint8_t STATE){
     }
   }
 }
-int MyRobot::getAnalogRead(unsigned int pin){
+int MyRobot::getAnalogRead(int pin){
   if (isValidAnalog(pin))
   {
     for (int i = 0; i < sizeof(_AnalogPins); i++)
@@ -80,7 +77,7 @@ int MyRobot::getAnalogRead(unsigned int pin){
 }
 
 /* SENSOR DIGITAL */
-void MyRobot::setupDigitalSensors(const int pins[], uint8_t STATE){
+void MyRobot::digitalSensors(int pins[], uint8_t STATE){
   if (isValidDigital(pins))
   {
     for (int i = 0; i < sizeof(pins); i++)
@@ -90,7 +87,7 @@ void MyRobot::setupDigitalSensors(const int pins[], uint8_t STATE){
     }
   }
 }
-int MyRobot::getDigitalRead(unsigned int pin){
+int MyRobot::getDigitalRead(int pin){
   if (isValidDigital(pin))
   {
     for (int i = 0; i < sizeof(_DigitalPins); i++)
@@ -104,12 +101,13 @@ int MyRobot::getDigitalRead(unsigned int pin){
 }
 
 /* ULTRASSOM */
-void MyRobot::setupUltra(unsigned int TrigPin, unsigned int EchoPin){
+void MyRobot::ultra(unsigned int TrigPin, unsigned int EchoPin){
   pinMode(TrigPin, OUTPUT);
   pinMode(EchoPin, INPUT);
   _TrigPin = TrigPin;
   _EchoPin = EchoPin;
 }
+
 unsigned int MyRobot::getDistancia(){
   delayMicroseconds(2);
   digitalWrite(_TrigPin, HIGH);
@@ -122,17 +120,19 @@ unsigned int MyRobot::getDistancia(){
   return _distancia;
 }
 
-bool MyRobot::isValidDigital(const int pins[]){
+
+
+bool MyRobot::isValidDigital(int pins[]){
   return (sizeof(pins) < MAX_DIGITAL_PINS) ? true : false;
 }
-bool MyRobot::isValidDigital(const int pin){
+bool MyRobot::isValidDigital(int pin){
   return (pin < MAX_DIGITAL_PINS) ? true : false;
 }
 
-bool MyRobot::isValidAnalog(const int pins[]){
+
+bool MyRobot::isValidAnalog(int pins[]){
   return (sizeof(pins) < MAX_ANALOG_PINS) ? true : false;
 }
-bool MyRobot::isValidAnalog(const int pin){
+bool MyRobot::isValidAnalog(int pin){
   return (pin < MAX_ANALOG_PINS) ? true : false;
 }
-

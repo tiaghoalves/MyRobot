@@ -13,19 +13,19 @@ using namespace std;
 class MyRobot {
 
 public:
-  MyRobot(void);
+  MyRobot();
 
 /*  SETUPS
   Servos: */
-  void setupServo(unsigned int esqPin, unsigned int dirPin);
+  void servos(unsigned int esqPin, unsigned int dirPin);
 /* ANALOG: */
-  void setupAnalogSensors(const int pins[], uint8_t STATE);
+  void analogSensors(int pins[], uint8_t STATE);
 /* DIGITAL: */
-  void setupDigitalSensors(const int pins[], uint8_t STATE);
+  void digitalSensors(int pins[], uint8_t STATE);
 /* ULTRASSOM: */
-  void setupUltra(unsigned int TrigPin, unsigned int EchoPin);
+  void ultra(unsigned int TrigPin, unsigned int EchoPin);
 
-/* ACTIONS */
+/* Metodos */
   void stopServo();
   void goAhead();
   void goBack();
@@ -33,25 +33,32 @@ public:
   void goBackRight();
   void toggleRight();
   void toggleLeft();
+
   unsigned int getDistancia();
-  int getAnalogRead(unsigned int pin);
-  int getDigitalRead(unsigned int pin);
   
-  bool isValidDigital(const int pins[]);
-  bool isValidDigital(const int pin);
-  bool isValidAnalog(const int pins[]);
-  bool isValidAnalog(const int pin);
+  int getAnalogRead(int pin);
+  int getDigitalRead(int pin);
+  
 
 private:
+// Servo
   Servo _esquerdo;
   Servo _direito;
-  bool _stateServoLeft;
-  bool _stateServoRight;
+  bool _stateLeft;
+  bool _stateRight;
+
+// Ultra
   unsigned int _distancia;
   unsigned int _TrigPin;
   unsigned int _EchoPin;
+
+// Sensor
   unsigned int _AnalogPins[MAX_ANALOG_PINS];
   unsigned int _DigitalPins[MAX_DIGITAL_PINS];
+  bool isValidDigital(int pins[]);
+  bool isValidDigital(int pin);
+  bool isValidAnalog(int pins[]);
+  bool isValidAnalog(int pin);
   
 };
 
