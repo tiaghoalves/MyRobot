@@ -5,10 +5,7 @@
 MyRobot bot;
 
 int AnalogPins[4] = { 0, 1, 2, 3 };
-int value1;
-int value2;
-int value3;
-int value4;
+int value1 value2 value3 value4;
 
 void setup() {
   Serial.begin(9600);  
@@ -19,7 +16,7 @@ void setup() {
 }
 
 void loop() {
-  // Serial Prints call:
+  // Serial Prints:
   prints();
   // Get Analog Reads:
   value1 = bot.getAnalogRead(AnalogPins[0]);
