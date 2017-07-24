@@ -51,20 +51,6 @@ Passados dois pinos conectados ao sensor ultrassonico.
 TO-DO
 ------
 
-/* Metodos */
-  void stopServo();
-  void goAhead();
-  void goBack();
-  void goBackLeft();
-  void goBackRight();
-  void toggleRight();
-  void toggleLeft();
-
-  unsigned int getDistancia();
-  
-  int getAnalogRead(int pin);
-  int getDigitalRead(int pin);
-
 ## Usage
   Um exemplo prévio:
   ```c++	
