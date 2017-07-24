@@ -1,6 +1,5 @@
-![alt text][logo]
 
-[logo]: https://www.hackster.io/assets/hackster_logo_blue-03ea84833aa0dcf8f33be76d265d37340c7cd1ceb77a74429deb631ef0261e8f.png "Hackster.io"
+[![Hackster](https://www.hackster.io/assets/hackster_logo_blue-03ea84833aa0dcf8f33be76d265d37340c7cd1ceb77a74429deb631ef0261e8f.png)](https://www.hackster.io/TiagoAlves/myrobot-made-to-control-a-whole-robot-c74ad4)
 
 # MyRobot
 
